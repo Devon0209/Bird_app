@@ -18,6 +18,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val signup_btn: Button = findViewById(R.id.signup_btn)
+        signup_btn.setOnClickListener {
+            // Create an Intent to open the destination Activity
+            val intent = Intent (this@MainActivity, SignInActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 }
