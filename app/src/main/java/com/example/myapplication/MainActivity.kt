@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         val gomaps_btn: Button = findViewById(R.id.gomaps_btn)
         gomaps_btn.setOnClickListener {
             // Create an Intent to open the destination Activity
-            val intent = Intent (this@MainActivity, MapsActivity::class.java)
+            val intent = Intent (this@MainActivity, MenuActivity::class.java)
             startActivity(intent)
         }
 
