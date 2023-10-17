@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_location"
+        android:title="Location"
+        android:icon="@drawable/ic_location" />
+    <item
+        android:id="@+id/navigation_feather"
+        android:title="Feather"
+        android:icon="@drawable/ic_feather" />
+    <item
+        android:id="@+id/navigation_add"
+        android:title="Add"
+        android:icon="@drawable/ic_add" />
+    <item
+        android:id="@+id/navigation_person"
+        android:title="Person"
+        android:icon="@drawable/ic_person" />
+    <item
+        android:id="@+id/navigation_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings" />
+</menu>
