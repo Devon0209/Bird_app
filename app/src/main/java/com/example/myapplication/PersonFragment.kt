@@ -16,7 +16,6 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 
-
 class PersonFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var storageRef: StorageReference
@@ -42,9 +41,8 @@ class PersonFragment : Fragment() {
     private fun displayUserInfo(view: View) {
         val user = auth.currentUser
         if (user != null) {
-            val displayNameTextView: TextView = view.findViewById(R.id.textView2)
-            val emailTextView: TextView = view.findViewById(R.id.textView3)
-
+            val displayNameTextView: TextView = view.findViewById(R.id.displayNameTextView)
+            val emailTextView: TextView = view.findViewById(R.id.emailTextView)
             // Set the user's display name and email
             displayNameTextView.text = user.displayName
             emailTextView.text = user.email
