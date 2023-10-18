@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
-</FrameLayout>
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_margin="16dp"
+        android:max="49"
+        android:layout_centerHorizontal="true" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="Miles"
+        android:textOff="Kilometers"
+        android:checked="true"
+        android:layout_below="@+id/seekBar"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/sendDataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Data"
+        android:layout_below="@+id/toggleButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>
+

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        tools:context=".Auth.RegistrationActivity">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="409dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.404" />
+
+        <ScrollView
+            android:layout_width="421dp"
+            android:layout_height="676dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="795dp"
+                    android:backgroundTint="@color/white"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="74dp">
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="370dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/custom_edittext"
+                        android:backgroundTint="#FDDDA5"
+                        android:drawableLeft="@drawable/baseline_lock_24"
+                        android:drawablePadding="8dp"
+                        android:hint="Password"
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/email"
+                        app:layout_constraintVertical_bias="0.076" />
+
+                    <EditText
+                        android:id="@+id/lfirstname"
+                        android:layout_width="370dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/custom_edittext"
+                        android:backgroundTint="#FDDDA5"
+                        android:drawableLeft="@drawable/baseline_personal_injury_24"
+                        android:drawablePadding="8dp"
+                        android:hint="First Name"
+                        android:padding="8dp"
+
+                        android:textColor="@color/black"
+                        app:circularflow_radiusInDP="0.2dp"
+                        app:layout_constraintBottom_toTopOf="@+id/lastname"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.45"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.779" />
+
+                    <EditText
+                        android:id="@+id/lastname"
+                        android:layout_width="370dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/custom_edittext"
+                        android:backgroundTint="#FDDDA5"
+                        android:drawableLeft="@drawable/baseline_personal_injury_24"
+                        android:drawablePadding="8dp"
+                        android:hint="Last Name"
+                        android:padding="8dp"
+
+                        android:textColor="@color/black"
+                        app:circularflow_radiusInDP="0.2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.47"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.294" />
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="370dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/custom_edittext"
+                        android:backgroundTint="#FDDDA5"
+                        android:drawableLeft="@drawable/baseline_personal_injury_24"
+                        android:drawablePadding="8dp"
+                        android:hint="Email Adress"
+                        android:padding="8dp"
+
+                        android:textColor="@color/black"
+                        app:circularflow_radiusInDP="0.2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.45"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lastname"
+                        app:layout_constraintVertical_bias="0.085" />
+
+                    <Button
+                        android:id="@+id/login_btn"
+                        android:layout_width="250dp"
+                        android:layout_height="70dp"
+                        android:backgroundTint="@color/orange"
+                        android:radius="2dp"
+                        android:text="Sign up"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.496"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/login2_btn"
+                        app:layout_constraintVertical_bias="0.035" />
+
+                    <Button
+                        android:id="@+id/login2_btn"
+                        android:layout_width="323dp"
+                        android:layout_height="55dp"
+                        android:backgroundTint="@android:color/white"
+                        android:text="Have an account? Login"
+                        android:textColor="@color/orange"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.54"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/password"
+                        app:layout_constraintVertical_bias="0.063" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="319dp"
+            android:layout_height="171dp"
+            android:gravity="left"
+            android:text="Welcome to the best bird watching app, Intaka."
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.304"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.184" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
