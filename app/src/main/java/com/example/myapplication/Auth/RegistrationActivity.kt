@@ -14,6 +14,7 @@ import com.example.myapplication.SignInActivity
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegistrationActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -22,19 +23,19 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var signUpButton: Button
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
         auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
         firstNameEditText = findViewById(R.id.lfirstname)
         lastNameEditText = findViewById(R.id.lastname)
         emailEditText = findViewById(R.id.email)
         passwordEditText = findViewById(R.id.password)
         signUpButton = findViewById(R.id.login_btn)
-
-
 
         signUpButton.setOnClickListener {
             val firstName = firstNameEditText.text.toString()
@@ -47,10 +48,10 @@ class RegistrationActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val user = auth.currentUser
                         val uid = user?.uid ?: ""
-                        // Save user data to Firebase Realtime Database
-                        saveUserDataToDatabase(uid, firstName, lastName, email)
+                        // Save user data to Firestore
+                        saveUserDataToFirestore(uid, firstName, lastName, email, password)
 
-                        val intent = Intent (this@RegistrationActivity, MenuActivity::class.java)
+                        val intent = Intent(this@RegistrationActivity, MenuActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(
@@ -63,20 +64,19 @@ class RegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveUserDataToDatabase(uid: String, firstName: String, lastName: String, email: String) {
-        val database = FirebaseDatabase.getInstance()
-        val reference = database.getReference("users").child(uid)
-        val userData = User(firstName, lastName, email)
+    private fun saveUserDataToFirestore(uid: String, firstName: String, lastName: String, email: String, password:String) {
+        val user = User(firstName, lastName, email, password)
 
-        reference.setValue(userData)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Registration and data storage complete
-                    Toast.makeText(this, "Registration successful.", Toast.LENGTH_SHORT).show()
-                    // Redirect to the main activity or login page
-                } else {
-                    Toast.makeText(this, "Data storage failed. Please try again.", Toast.LENGTH_SHORT).show()
-                }
+        firestore.collection("users")
+            .document(uid)
+            .set(user)
+            .addOnSuccessListener {
+                // Registration and data storage successful
+                Toast.makeText(this, "Registration successful.", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Data storage failed. Please try again.", Toast.LENGTH_SHORT).show()
             }
     }
 }
+

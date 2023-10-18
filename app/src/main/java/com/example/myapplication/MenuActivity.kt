@@ -3,6 +3,7 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.myapplication.Sightings.AddFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MenuActivity : AppCompatActivity() {
@@ -44,6 +45,6 @@ class MenuActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-        loadFragment(AddFragment()) // Load the initial fragment.
+        loadFragment(LocationFragment()) // Load the initial fragment.
     }
 }
