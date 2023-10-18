@@ -49,6 +49,8 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
+    implementation ("com.google.android.gms:play-services-maps:18.0.1")
+    implementation ("com.google.maps:google-maps-services:0.15.0")
 
     implementation ("com.squareup.picasso:picasso:2.8")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
