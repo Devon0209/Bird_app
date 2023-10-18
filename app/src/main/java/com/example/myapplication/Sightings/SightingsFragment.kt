@@ -7,33 +7,38 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import com.example.myapplication.R
+import com.google.firebase.auth.FirebaseAuth
 
 import com.google.firebase.firestore.FirebaseFirestore
 
 class SightingsFragment : Fragment() {
     private lateinit var listView: ListView
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         val view = inflater.inflate(R.layout.fragment_sightings, container, false)
 
         firestore = FirebaseFirestore.getInstance()
         listView = view.findViewById(R.id.listView)
+        auth = FirebaseAuth.getInstance()
 
-        // Fetch and display sightings
-        fetchSightings()
+        // Check if a user is logged in
+        val user = auth.currentUser
+        if (user != null) {
+            // Fetch and display sightings for the logged-in user
+            fetchSightings(user.uid)
+        }
 
         return view
     }
 
-    private fun fetchSightings() {
+    private fun fetchSightings(userId: String) {
         firestore.collection("users")
-            .document("user_id_here") // Replace with the user's actual UID
+            .document(userId)
             .collection("sightings")
             .get()
             .addOnSuccessListener { querySnapshot ->
@@ -57,4 +62,5 @@ class SightingsFragment : Fragment() {
             }
     }
 }
+
 

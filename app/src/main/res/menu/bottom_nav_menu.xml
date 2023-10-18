@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_location" />
     <item
         android:id="@+id/navigation_feather"
-        android:title="Feather"
+        android:title="Sightings"
         android:icon="@drawable/ic_feather" />
     <item
         android:id="@+id/navigation_add"

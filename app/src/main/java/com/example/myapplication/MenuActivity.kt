@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.myapplication.Sightings.AddFragment
+import com.example.myapplication.Sightings.SightingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MenuActivity : AppCompatActivity() {
@@ -14,7 +15,7 @@ class MenuActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_feather -> {
-                loadFragment(FeatherFragment())
+                loadFragment(SightingsFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_location -> {
