@@ -28,26 +28,7 @@
             android:layout_gravity="center"
             android:text="Get Current Location" />
 
-        <TextView
-            android:id="@+id/locationNameTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Location Name: Unknown" />
 
-        <TextView
-            android:id="@+id/latitudeTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Latitude: Unknown" />
-
-        <TextView
-            android:id="@+id/longitudeTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Longitude: Unknown" />
     </LinearLayout>
 
 </FrameLayout>

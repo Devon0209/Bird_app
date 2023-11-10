@@ -50,7 +50,7 @@ class PersonFragment : Fragment() {
             val surnameTextView: TextView = view.findViewById(R.id.surnameTextView)
 
             // Set the user's display name and email
-            displayNameTextView.text = user.displayName
+
             emailTextView.text = user.email
 
             // Load and display the currently displayed image (if available)
@@ -72,6 +72,7 @@ class PersonFragment : Fragment() {
                     // Update the UI with additional information (e.g., password, surname)
                     passwordTextView.text = additionalUserInfo.password
                     surnameTextView.text = additionalUserInfo.lastName
+                    displayNameTextView.text = additionalUserInfo.firstName
                 }
             }
         }
