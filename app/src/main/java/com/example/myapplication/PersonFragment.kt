@@ -11,7 +11,9 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import com.example.myapplication.Auth.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
@@ -40,9 +42,13 @@ class PersonFragment : Fragment() {
 
     private fun displayUserInfo(view: View) {
         val user = auth.currentUser
+
         if (user != null) {
             val displayNameTextView: TextView = view.findViewById(R.id.displayNameTextView)
             val emailTextView: TextView = view.findViewById(R.id.emailTextView)
+            val passwordTextView: TextView = view.findViewById(R.id.passwordTextView)
+            val surnameTextView: TextView = view.findViewById(R.id.surnameTextView)
+
             // Set the user's display name and email
             displayNameTextView.text = user.displayName
             emailTextView.text = user.email
@@ -58,8 +64,19 @@ class PersonFragment : Fragment() {
                 displayedImageUrl = uri
                 Picasso.get().load(uri).into(imageView)
             }
+
+            // Retrieve additional user information from Firestore
+            getUserFromFirestore(user.uid) { additionalUserInfo ->
+                // Handle the additional user information
+                if (additionalUserInfo != null) {
+                    // Update the UI with additional information (e.g., password, surname)
+                    passwordTextView.text = additionalUserInfo.password
+                    surnameTextView.text = additionalUserInfo.lastName
+                }
+            }
         }
     }
+
 
     private fun openImagePicker() {
         val intent = Intent(Intent.ACTION_PICK)
@@ -97,7 +114,28 @@ class PersonFragment : Fragment() {
                 }
         }
     }
+
+    fun getUserFromFirestore(userId: String, onComplete: (User?) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        val usersCollection = db.collection("users")
+
+        usersCollection.document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    val user = document.toObject(User::class.java)
+                    onComplete(user)
+                } else {
+                    onComplete(null)
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Handle failures
+                onComplete(null)
+            }
+    }
 }
+
 
 
 
