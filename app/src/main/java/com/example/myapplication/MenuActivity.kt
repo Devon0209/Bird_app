@@ -40,6 +40,8 @@ class MenuActivity : AppCompatActivity() {
             .commit()
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
