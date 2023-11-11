@@ -42,18 +42,19 @@
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+
+    <!-- Add Button -->
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="48dp"
         android:layout_height="48dp"
 
+        android:layout_marginTop="152dp"
         android:src="@drawable/hotspot_marker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextBird"
-        tools:layout_editor_absoluteY="142dp" />
-
-
-    <!-- Add Button -->
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextDate"
