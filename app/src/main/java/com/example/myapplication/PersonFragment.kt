@@ -69,7 +69,7 @@ class PersonFragment : Fragment() {
             getUserFromFirestore(user.uid) { additionalUserInfo ->
                 // Handle the additional user information
                 if (additionalUserInfo != null) {
-                    // Update the UI with additional information (e.g., password, surname)
+
                     passwordTextView.text = additionalUserInfo.password
                     surnameTextView.text = additionalUserInfo.lastName
                     displayNameTextView.text = additionalUserInfo.firstName
