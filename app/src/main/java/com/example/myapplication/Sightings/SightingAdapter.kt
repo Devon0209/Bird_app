@@ -8,6 +8,9 @@ import android.widget.TextView
 import com.example.myapplication.R
 
 class SightingAdapter(private val context: Context, private val sightingsList: List<SightingModel>) : BaseAdapter() {
+
+
+
     override fun getCount(): Int {
         return sightingsList.size
     }
