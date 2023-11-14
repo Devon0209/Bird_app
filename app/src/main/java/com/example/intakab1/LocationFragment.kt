@@ -1,11 +1,11 @@
 package com.example.intakab1
 
-
 import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,9 +32,9 @@ class LocationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var currentLocationButton: Button
-
-    // Custom marker for hotspots
     private lateinit var hotspotMarker: BitmapDescriptor
+    private var lastClickedMarkerPosition: LatLng? = null
+    private var directionPolyline: Polyline? = null
 
     companion object {
         private const val LOCATION_REQUEST_CODE = 1
@@ -47,12 +47,9 @@ class LocationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
         val rootView = inflater.inflate(R.layout.fragment_location, container, false)
 
         currentLocationButton = rootView.findViewById(R.id.currentLocationButton)
-
-        // Load a custom marker image for hotspots
         hotspotMarker = createCustomMarker(Color.argb(100, 0, 0, 255))
 
         currentLocationButton.setOnClickListener {
-            // Get the user's current location and add a marker to the map
             getCurrentLocation()
         }
 
@@ -64,7 +61,6 @@ class LocationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
 
         return rootView
     }
-
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
@@ -101,8 +97,6 @@ class LocationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
                     val currentLatLong = LatLng(location.latitude, location.longitude)
                     placeMarkerOnMap(currentLatLong)
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 12f))
-
-                    // Now get nearby hotspots based on the current location
                     getNearbyHotspots(location.latitude, location.longitude)
                 }
             }
@@ -116,14 +110,37 @@ class LocationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
-        // Handle marker click events here
+        lastClickedMarkerPosition = marker.position
+        calculateAndDisplayDirection()
         return false
+    }
+
+    private fun calculateAndDisplayDirection() {
+        if (lastClickedMarkerPosition != null && mMap.myLocation != null) {
+            val currentLocation = LatLng(
+                mMap.myLocation.latitude,
+                mMap.myLocation.longitude
+            )
+
+            directionPolyline?.remove()
+
+            directionPolyline = mMap.addPolyline(
+                PolylineOptions()
+                    .add(currentLocation, lastClickedMarkerPosition)
+                    .color(Color.BLUE)
+            )
+
+            val bounds = LatLngBounds.Builder()
+                .include(currentLocation)
+                .include(lastClickedMarkerPosition!!)
+                .build()
+
+            mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 100))
+        }
     }
 
     private fun getNearbyHotspots(latitude: Double, longitude: Double) {
         val apiKey = "tsmqqtr4glk1"
-
-        // Build the URL for the eBird API
         val url =
             "https://api.ebird.org/v2/ref/hotspot/geo?lat=$latitude&lng=$longitude&dist=50&fmt=json"
 
@@ -153,12 +170,15 @@ class LocationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
             } catch (e: IOException) {
                 e.printStackTrace()
                 activity?.runOnUiThread {
-                    Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Error: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
     }
-
 
     private fun parseHotspotData(responseData: String?) {
         responseData?.let {
@@ -203,7 +223,3 @@ class LocationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClick
         return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
 }
-
-
-
-
