@@ -1,4 +1,4 @@
-package com.example.intakab1.Sightings
+package com.example.intakab2.Sightings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import com.example.intakab1.R
+import com.example.intakab2.R
 import com.google.firebase.auth.FirebaseAuth
 
 import com.google.firebase.firestore.FirebaseFirestore

@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "IntakaB1"
+rootProject.name = "IntakaB2"
 include(":app")
  

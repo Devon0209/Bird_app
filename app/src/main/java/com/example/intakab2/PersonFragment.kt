@@ -1,4 +1,4 @@
-package com.example.intakab1
+package com.example.intakab2
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
-import com.example.intakab1.Auth.User
+import com.example.intakab2.Auth.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage

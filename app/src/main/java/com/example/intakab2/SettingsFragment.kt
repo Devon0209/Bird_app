@@ -1,4 +1,4 @@
-package com.example.intakab1
+package com.example.intakab2
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

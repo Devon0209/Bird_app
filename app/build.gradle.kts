@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.intakab1"
+    namespace = "com.example.intakab2"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.intakab1"
+        applicationId = "com.example.intakab2"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

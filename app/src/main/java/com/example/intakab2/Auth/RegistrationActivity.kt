@@ -1,15 +1,15 @@
-package com.example.intakab1.Auth
+package com.example.intakab2.Auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.intakab1.R
+import com.example.intakab2.R
 
 
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.intakab1.MenuActivity
+import com.example.intakab2.MenuActivity
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

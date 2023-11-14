@@ -1,11 +1,11 @@
-package com.example.intakab1.Sightings
+package com.example.intakab2.Sightings
 
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.example.intakab1.R
+import com.example.intakab2.R
 
 class SightingAdapter(private val context: Context, private val sightingsList: List<SightingModel>) : BaseAdapter() {
 

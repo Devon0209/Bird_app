@@ -1,4 +1,4 @@
-package com.example.intakab1
+package com.example.intakab2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
