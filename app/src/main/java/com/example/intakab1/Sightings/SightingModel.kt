@@ -1,4 +1,4 @@
-package com.example.myapplication.Sightings
+package com.example.intakab1.Sightings
 
 data class SightingModel(
     val bird: String,

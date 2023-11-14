@@ -1,4 +1,4 @@
-package com.example.myapplication.Auth
+package com.example.intakab1.Auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.MenuActivity
-import com.example.myapplication.R
+import com.example.intakab1.MenuActivity
+import com.example.intakab1.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

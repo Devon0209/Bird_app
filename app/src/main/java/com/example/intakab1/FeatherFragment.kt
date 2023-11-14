@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.intakab1
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

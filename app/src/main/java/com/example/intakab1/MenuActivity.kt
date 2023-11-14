@@ -1,10 +1,10 @@
-package com.example.myapplication
+package com.example.intakab1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.myapplication.Sightings.AddFragment
-import com.example.myapplication.Sightings.SightingsFragment
+import com.example.intakab1.Sightings.AddFragment
+import com.example.intakab1.Sightings.SightingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MenuActivity : AppCompatActivity() {

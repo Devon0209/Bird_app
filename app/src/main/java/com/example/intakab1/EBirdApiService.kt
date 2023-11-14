@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.intakab1
 
 import retrofit2.http.GET
 import retrofit2.http.Headers

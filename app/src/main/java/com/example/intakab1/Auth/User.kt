@@ -1,4 +1,4 @@
-package com.example.myapplication.Auth
+package com.example.intakab1.Auth
 
 data class User(
     val firstName: String = "",

@@ -1,4 +1,4 @@
-package com.example.myapplication.Sightings
+package com.example.intakab1.Sightings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 
 import android.widget.Button
 import android.widget.EditText
-import com.example.myapplication.R
+import com.example.intakab1.R
 import com.google.firebase.firestore.FirebaseFirestore
 
 

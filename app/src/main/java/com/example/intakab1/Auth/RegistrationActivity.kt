@@ -1,19 +1,17 @@
-package com.example.myapplication.Auth
+package com.example.intakab1.Auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.myapplication.R
+import com.example.intakab1.R
 
 
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.myapplication.MenuActivity
-import com.example.myapplication.SignInActivity
+import com.example.intakab1.MenuActivity
 
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RegistrationActivity : AppCompatActivity() {
